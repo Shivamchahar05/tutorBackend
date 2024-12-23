@@ -1,0 +1,48 @@
+service: rr-group
+provider:
+  name: aws
+  runtime: nodejs18.x
+  memorySize: 512
+  stage: ${file(./config/serverless.${opt:stage, 'dev'}.json):stage}
+  region: ${file(./config/serverless.${opt:stage, 'dev'}.json):region}
+
+functions:
+  swagger:
+    handler: swagger/handler.handler
+    events:
+      - http: ANY /{proxy+}
+  users:
+    timeout: 29
+    handler: users/handler.handler
+    events:
+     - http: ANY /user/{proxy+}
+  booking:
+    timeout: 29
+    handler: booking/handler.handler
+    events:
+     - http: ANY /booking/{proxy+}
+  tutor:
+    timeout: 29
+    handler: tutor/handler.handler
+    events:
+     - http: ANY /tutor/{proxy+}   
+  loan:
+    handler: loan/handler.handler
+    events:
+     - http: ANY /loan/{proxy+}
+custom:
+  apigwBinary:
+    types:           #list of mime-types
+      - 'image/png'
+      - 'image/jpg'
+      - 'image/jpeg'
+      - 'text/html'
+      - 'text/css'
+      - '*/*'
+  serverless-offline:
+    httpPort: 3005
+
+
+plugins:
+  - serverless-apigw-binary
+  - serverless-offline

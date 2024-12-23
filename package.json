@@ -1,0 +1,54 @@
+{
+  "name": "Tutor",
+  "version": "1.0.0",
+  "description": "learning plateform",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon --exec sls offline --httpPort 3005"
+  },
+  "keywords": [
+    "Loan",
+    "Buisness"
+  ],
+  "author": "RR_GROUP",
+  "license": "ISC",
+  "dependencies": {
+    "@aws-sdk/client-s3": "^3.328.0",
+    "@aws-sdk/s3-request-presigner": "^3.328.0",
+    "@joi/date": "^2.1.0",
+    "@opensearch-project/opensearch": "^2.2.0",
+    "@sendgrid/mail": "^7.7.0",
+    "bcryptjs": "^2.4.3",
+    "composable-middleware": "^0.3.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "express-rate-limit": "^6.7.0",
+    "firebase-admin": "^11.9.0",
+    "i18n": "^0.15.1",
+    "joi": "^17.9.1",
+    "jsonwebtoken": "^9.0.0",
+    "lodash": "^4.17.21",
+    "moment": "^2.29.4",
+    "mongodb": "^6.8.0",
+    "mongoose": "^8.4.4",
+    "mysql": "^2.18.1",
+    "mysql2": "^3.9.2",
+    "nats": "^2.13.1",
+    "pg": "^8.10.0",
+    "sequelize": "^6.30.0",
+    "serverless-http": "^3.2.0",
+    "ssh2": "^1.15.0",
+    "stripe": "^12.6.0",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^4.6.2",
+    "twilio": "^4.10.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.7",
+    "serverless-apigw-binary": "^0.4.4",
+    "serverless-offline": "^12.0.4"
+  }
+}

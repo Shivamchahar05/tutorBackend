@@ -1,0 +1,75 @@
+/* body {
+    background-color: #f3eeee
+} */
+
+/* .swagger-ui .topbar {
+    background-color: rgb(147, 136, 199);
+} */
+
+.swagger-ui .topbar {
+    background: #c80680;
+    /* Old browsers */
+    background: #c80680;
+    /* Old browsers  */
+    background: -moz-linear-gradient(top, #7B60F6 0%, #183290 55%);
+    /* FF3.6+ */
+    background: -webkit-linear-gradient(top, #7B60F6 0%, #183290 55%);
+    /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, #7B60F6 0%, #183290 55%);
+    /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, #7B60F6 0%, #183290 55%);
+    /* IE10+ */
+    background: linear-gradient(to top, #7B60F6 0%, #183290 55%);
+    /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='$left', endColorstr='$right', GradientType=0);
+    /* IE6-9 */
+}
+
+.swagger-ui .topbar .wrapper .topbar-wrapper:after {
+    content: url('https://img1.wsimg.com/isteam/ip/72247155-c933-49d9-ae0a-86825490dd59/ALZ-Meter-Logo-Option-1.jpg/:/cr=t:0%25,l:0%25,w:100%25,h:100%25/rs=w:60,h:60,cg:true');
+    /* content: url('logo.jpg') !important; */
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    margin-top: -50px;
+}
+
+/* .swagger-ui .information-container {
+    background-color: rgb(147, 136, 199);
+}
+
+.swagger-ui .scheme-container {
+    background-color: rgb(147, 136, 199);
+} */
+
+.swagger-ui .topbar .wrapper .topbar-wrapper ::after {
+    content: 'ALZ Meter API Documentation';
+    padding: 10px 70px;
+}
+
+.swagger-ui .topbar .wrapper .topbar-wrapper .link img {
+    content: url("logo.jpg") !important;
+    /* display: none; */
+}
+
+.swagger-ui .info .base-url {
+    font-size: 10px;
+}
+
+.swagger-ui .markdown p {
+    font-size: 12px;
+}
+
+.swagger-ui .btn.execute {
+    background-color: rgb(72, 142, 55);
+    margin: 0 5px;
+}
+
+.swagger-ui .btn.btn-clear {
+    margin: 0 5px;
+}
+
+.swagger-ui button {
+    background: orange;
+}

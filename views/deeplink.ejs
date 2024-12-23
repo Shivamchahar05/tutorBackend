@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <base href="/">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- new changes -->
+    <title>
+        <%= title %>
+    </title>
+    <meta property="og:title" content="<%= og_title %>">
+    <meta property="og:description" content="<%= og_description %>">
+    <meta property="og:image" content="<%= og_image %>">
+    <meta property="og:url" content="<%= og_url %>">
+
+    <!-- new changes -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <script>
+        let url = document.URL;
+        let apiUrl = "";
+        function load() {
+            launch_app();
+        }
+
+        function clickHere() {
+            launch_app();
+        }
+
+        function launch_app() {
+            var url = document.URL;
+            url = url.split('?');
+            let userAgentString = navigator.userAgent;
+
+
+            if (getMobileOperatingSystem().toLowerCase() == 'android') {
+                var now = new Date().valueOf();
+                setTimeout(function () {
+                    if (new Date().valueOf() - now > 100) return;
+                    window.location.replace(`<%= redirect_url_play_store %>`);
+                }, 50);
+                window.location = `<%= redirect_url_android %> `;
+            }
+            else {
+                var now = new Date().valueOf();
+                setTimeout(function () {
+                    if (new Date().valueOf() - now > 100) return;
+                    window.location = `<%= redirect_url_app_store %> `;
+                }, 50);
+                window.location = `<%= redirect_url_ios %>`;
+            }
+        }
+
+        function getMobileOperatingSystem() {
+            var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+            // Windows Phone must come first because its UA also contains "Android"
+            if (/windows phone/i.test(userAgent)) {
+                return "Windows Phone";
+            }
+
+            if (/android/i.test(userAgent)) {
+                return "Android";
+            }
+
+            // iOS detection from: http://stackoverflow.com/a/9039885/177710
+            if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+                return "iOS";
+            }
+
+            return "unknown";
+        }
+
+        function getParameterByName(name, url = window.location.href) {
+            name = name.replace(/[\[\]]/g, '\\$&');
+            var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+                results = regex.exec(url);
+            if (!results) return null;
+            if (!results[2]) return '';
+            return decodeURIComponent(results[2].replace(/\+/g, ' '));
+        }
+        function escapeHtml(html) {
+            var doc = new DOMParser().parseFromString(html, 'text/html');
+            return doc.body.textContent || "";
+        }
+
+
+    </script>
+</head>
+
+<body onload="load()">
+    <div style="font-family: 'Open Sans', Arial, sans-serif;">
+        <table style="background:#f3f3f3; width:100%;" cellpadding="0" cellspacing="0" border="0">
+            <tbody>
+                <tr>
+                    <td style="padding: 50px;">
+                        <table style="width: 550px;height: 100%;margin: 0 auto" cellpadding="0" cellspacing="0"
+                            border="0">
+                            <tbody>
+                                <tr>
+                                    <td
+                                        style="border-radius: 10px;background: #fff;padding: 30px 60px 20px 60px;margin-top: 10px;display: block;">
+                                        <p
+                                            style="font-family: 'Open Sans', Arial, sans-serif;font-size: 14px;font-weight: normal;font-style: normal;font-stretch: normal;line-height: 1.71;letter-spacing: normal;color: #001737;">
+                                            If not redirected automatically then click this link
+                                        </p>
+                                        <input type="button" value="Click me" onclick="clickHere()">
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>
