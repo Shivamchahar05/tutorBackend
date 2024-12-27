@@ -12,6 +12,13 @@ app.use((err, res, req, next) => {
      console.log("err>>>>>>>",err)
     errorHandler(err, req, res);
 });
-module.exports.handler = serverless(app);
+// module.exports.handler = serverless(app);
+
+const handler = serverless(app);
+
+module.exports.handler = async (event, context) => {
+    console.log("Event in handler:", event); 
+    return handler(event, context);  
+}
 
 

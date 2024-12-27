@@ -182,5 +182,7 @@
 	},
 	"Operation `users": {
 		"findOne()` buffering timed out after 10000ms": "Operation `users.findOne()` buffering timed out after 10000ms"
-	}
+	},
+	"Cannot read properties of null (reading 'password')": "Cannot read properties of null (reading 'password')",
+	"User already exists": "User already exists"
 }

@@ -1,6 +1,6 @@
-service: rr-group
+service: netifly
 provider:
-  name: aws
+  name: netifly
   runtime: nodejs18.x
   memorySize: 512
   stage: ${file(./config/serverless.${opt:stage, 'dev'}.json):stage}

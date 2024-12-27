@@ -6,6 +6,7 @@ const TokenMiddleware = require("../../middleware/token.middleware");
 const { userRequestSchema } = require("../request-schema/index")
 
 
+
 router.post("/userRegister", userRequestSchema.validate(userRequestSchema.createUserSchema()),
     UserController.signIn);
 
