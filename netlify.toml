@@ -1,6 +1,4 @@
 [build]
   functions = "functions"  # Folder containing your function files
-  publish = "build"               # Path to static files (if any)
+  publish = "public"               # Path to static files (if any)
 
-[[plugins]]
-  package = "@netlify/plugin-functions-install-core"
