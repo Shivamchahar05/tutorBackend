@@ -17,4 +17,4 @@ router.get("/user-profile",TokenMiddleware.authorize, userRequestSchema.validate
     UserController.fetchProfile);
 
 
-    module.exports = router;
+module.exports = router

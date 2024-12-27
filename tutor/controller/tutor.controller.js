@@ -42,6 +42,7 @@ class TutorController {
     } catch (e) {
       next(e);
       console.error('Error in sign-in:', e);
+
       return CommonHelper.sendError(res, false, constant.STATUS_CODE.HTTP_500_INTERNAL_SERVER_ERROR, e);
     }
   }

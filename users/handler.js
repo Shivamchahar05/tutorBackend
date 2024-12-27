@@ -2,10 +2,7 @@
 const serverless = require('serverless-http');
 const app = require('../server')
 const { errorHandler } = require('../middleware/error.middleware');
-
-const userRoute = require('./route');
-
-app.use('/user/v1', userRoute);
+app.use("/user/v1", require("./route"));
 
     // The 404 Route (ALWAYS Keep this as the last route)
 app.get('*', (req, res) => {
@@ -15,13 +12,13 @@ app.use((err, res, req, next) => {
      console.log("err>>>>>>>",err)
     errorHandler(err, req, res);
 });
-// module.exports.handler = serverless(app);
+module.exports.handler = serverless(app);
 
 
 
-const handler = serverless(app);
+// const handler = serverless(app);
 
-module.exports.handler = async (event, context) => {
-    console.log("Event in handler:", event); 
-    return handler(event, context);  
-};
+// module.exports.handler = async (event, context) => {
+//     console.log("Event in handler:", event); 
+//     return handler(event, context);  
+// };

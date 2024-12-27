@@ -1,3 +1,7 @@
 [build]
-  functions = "functions"  # Folder containing your function files
+  functions = "functions"
 
+[[redirects]]
+  from = "/.netlify/functions/*"
+  to = "/.netlify/functions/:splat"
+  status = 200

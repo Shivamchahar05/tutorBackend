@@ -29,6 +29,7 @@ class UserController {
     } catch (e) {
       next(e);
       console.error('Error in sign-in:', e);
+
       return CommonHelper.sendError(res, false, constant.STATUS_CODE.HTTP_500_INTERNAL_SERVER_ERROR, e);
     }
   }
@@ -43,7 +44,9 @@ class UserController {
     } catch (e) {
       next(e);
       console.error('Error in sign-in:', e);
-      return CommonHelper.sendError(res, false, constant.STATUS_CODE.HTTP_500_INTERNAL_SERVER_ERROR, e);
+      res.status(500).json({ message: 'Internal Server Error', error: e });
+
+      // return CommonHelper.sendError(res, false, constant.STATUS_CODE.HTTP_500_INTERNAL_SERVER_ERROR, e);
     }
   }
 

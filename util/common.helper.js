@@ -91,7 +91,7 @@ class CommonHelper {
             data,
             ...(total && { total }),
             ...(message && {
-                message: typeof message === "string" ? res.__(message) : res.__(message.key, message.value)
+                message: typeof message === "string" ? res.message : res.__(message.key, message.value)
             })
         };
         res.status(statusCode).json(resData);
@@ -107,16 +107,16 @@ class CommonHelper {
      * @response {*} http response
      */
     sendError = (res, status, statusCode, message, data = {}) => {
-        console.log(res.__(message), "res")
+        console.log(res.message, "res")
         console.log(status, "status")
         console.log(message, "message")
         res.status(statusCode).json({
             success: status,
             status:statusCode,
-            message:
-                typeof message === "string"
-                    ? res.__(message)
-                    : res.__(message.key, message.value),
+            message:message,
+            //     typeof message === "string"
+            //         ? res.message
+            //         : res.__(message.key, message.value),
             data: data,
         });
     };
