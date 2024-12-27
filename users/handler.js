@@ -2,7 +2,10 @@
 const serverless = require('serverless-http');
 const app = require('../server')
 const { errorHandler } = require('../middleware/error.middleware');
-app.use("/user/v1", require("./route"));
+
+const userRoute = require('./route');
+
+app.use('/user/v1', userRoute);
 
     // The 404 Route (ALWAYS Keep this as the last route)
 app.get('*', (req, res) => {
