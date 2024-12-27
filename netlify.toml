@@ -1,4 +1,3 @@
 [build]
   functions = "functions"  # Folder containing your function files
-  publish = "public"               # Path to static files (if any)
 
