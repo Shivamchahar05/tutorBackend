@@ -13,7 +13,7 @@ router.post("/userRegister", userRequestSchema.validate(userRequestSchema.create
 router.post("/login", userRequestSchema.validate(userRequestSchema.loginUserSchema()),
     UserController.login);
 
-router.get("/user-profile",TokenMiddleware.authorize, userRequestSchema.validate(userRequestSchema.UserSchema()),
+router.post("/user-profile",TokenMiddleware.authorize, userRequestSchema.validate(userRequestSchema.UserSchema()),
     UserController.fetchProfile);
 
 

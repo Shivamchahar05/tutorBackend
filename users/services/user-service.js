@@ -39,20 +39,25 @@ class UserService {
 
 
   loginUser = async (data) => {
-    try{
-    const { phoneNumber, password } = data;
-    const existingUser = await User.findOne({ phoneNumber });
-    const hashedPassword = await CommonHelper.hashingComparePassword(password, existingUser.password);
-    console.log(hashedPassword, "hashedPassword")
-    if (hashedPassword) {
-      const token = await JWTHelper.generateToken({ userId: existingUser.id }, "1d")
-      console.log(token, "token")
-      return token
-    } else {
-      throw "Invalid password"
-    }
-    }catch(e){
-      throw e
+    try {
+      const { phoneNumber, password } = data;
+      const existingUser = await User.findOne({ phoneNumber });
+      console.log(existingUser, "existingUser")
+      if (existingUser) {
+        const hashedPassword = await CommonHelper.hashingComparePassword(password, existingUser.password);
+        console.log(hashedPassword, "hashedPassword")
+        if (hashedPassword) {
+          const token = await JWTHelper.generateToken({ userId: existingUser.id }, "1d")
+          console.log(token, "token")
+          return token
+        } else {
+          throw new Error("Invalid password")
+        }
+      }else{
+        throw new Error("User Not Found")
+      }
+    } catch (e) {
+      throw (e)
     }
 
 

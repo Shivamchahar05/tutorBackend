@@ -10,7 +10,7 @@ router.post("/tutor", tutorRequestSchema.validate(tutorRequestSchema.createTutor
     TutorController.createTutor);
 
 
-router.get("/tutor",
+router.post("/fetch-tutor",
     TutorController.fetchTutors);
 
 router.post("/booked-tutor", TokenMiddleware.authorize, tutorRequestSchema.validate(tutorRequestSchema.tutorBookingSchema()),
